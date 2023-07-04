@@ -1,0 +1,22 @@
+import pandas as pd
+
+portfolio = [
+    {'Stock': 'AAPL', 'Quantity': 10},
+    {'Stock': 'GOOGL', 'Quantity': 5},
+    {'Stock': 'TSLA', 'Quantity': 3},
+]
+
+def get_stock_price(stock):
+    return 100.0
+
+portfolio_df = pd.DataFrame(portfolio)
+
+portfolio_df['Current Price'] = portfolio_df['Stock'].apply(get_stock_price)
+
+portfolio_df['Total Value'] = portfolio_df['Current Price'] * portfolio_df['Quantity']
+
+portfolio_value = portfolio_df['Total Value'].sum()
+
+print('------ Portfolio Summary ------')
+print(portfolio_df)
+print('Portfolio Value:', portfolio_value)
